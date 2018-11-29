@@ -1,3 +1,7 @@
+.card {
+  background-color: #f6f6f6;
+}
+
 .App {
   text-align: center;
 }
@@ -31,11 +35,19 @@
 }
 
 .card .card-content p {
-  height: 100px;
+  height: 140px;
 }
 
 .card .card-image .card-title {
   padding: 20px;
   right: 0;
   background-color: rgba(0,0,0,0.3);
+}
+
+.App-header {
+  margin-bottom: 60px;
+}
+
+nav .brand-logo {
+  position: relative;
 }
