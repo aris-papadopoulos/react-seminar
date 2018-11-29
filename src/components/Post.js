@@ -5,7 +5,7 @@ class Post extends Component {
     render() {
         return (
                 <div className="col s12 m6">
-                    <div className="card">
+                    <div className="card z-depth-2">
                         <div className="card-image">
                             <img src={this.props.imageSrc} alt="mpamphs" />
                             <span className="card-title">{this.props.title}</span>
