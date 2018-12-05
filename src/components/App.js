@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Post from './components/Post';
-import './App.css';
+import Post from './Post';
+import '../css/App.css';
 
 class App extends Component {
     constructor(props) {
