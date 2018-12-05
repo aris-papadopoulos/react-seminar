@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import Post from './Post';
 import '../css/App.css';
+
+import { getPosts } from '../actions/';
 
 class App extends Component {
     constructor(props) {
@@ -9,6 +12,10 @@ class App extends Component {
         this.state = {
             newNotifications: 4
         }
+    }
+
+    componentDidMount() {
+        this.props.getPosts();
     }
 
     renderNotifications() {
@@ -56,4 +63,11 @@ class App extends Component {
     }
 }
 
-export default App;
+// Dispatch action to fetch posts
+function mapStateToProps(state) {
+    return {
+        posts: state.posts
+    }
+}
+
+export default connect(mapStateToProps, { getPosts })(App);
