@@ -7,6 +7,7 @@ import rootReducer from './reducers';
 import thunk from 'redux-thunk';
 import './css/index.css';
 import App from './components/App';
+import Header from './components/Header';
 import SinglePost from './components/SinglePost';
 import * as serviceWorker from './serviceWorker';
 
@@ -15,10 +16,13 @@ const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
 ReactDOM.render(
     <Provider store={createStoreWithMiddleware(rootReducer)}>
         <BrowserRouter>
-            <Switch>
-                <Route path="/posts/:slug" component={SinglePost} />
-                <Route path="/" component={App} />
-            </Switch>
+            <>
+                <Header />
+                <Switch>
+                    <Route path="/posts/:slug" component={SinglePost} />
+                    <Route path="/" component={App} />
+                </Switch>
+            </>
         </BrowserRouter>
     </Provider>
 , document.getElementById('root'));
