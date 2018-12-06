@@ -9,7 +9,10 @@ export default function (state = [], action) {
                 id: post.id,
                 title: post.title.rendered,
                 excerpt: post.excerpt.rendered,
-                featured_media_id: post.featured_media,
+                featured_media: {
+                    title: post._embedded['wp:featuredmedia'][0].title.rendered,
+                    url: post._embedded['wp:featuredmedia'][0].media_details.sizes.medium_large.source_url
+                },
                 slug: post.slug
             }
         });
