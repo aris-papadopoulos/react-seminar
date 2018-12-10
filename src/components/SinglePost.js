@@ -41,16 +41,18 @@ class SinglePost extends Component {
         return (
             <div className="App">
                 <main>
-                    <div className="col s12 m6">
-                        <div className="card z-depth-2">
-                            <div className="card-image">
-                                <img src={this.props.currentPost.imageSrc} alt={this.props.currentPost.imageAlt} />
-                                <span className="card-title">{this.props.currentPost.title}</span>
-                            </div>
-                            <div className="card-content" dangerouslySetInnerHTML={this.createMarkup()}>
+                    <div className="row container">
+                        <div className="col s12">
+                            <div className="card">
+                                <div className="card-image">
+                                    <img src={this.props.currentPost.imageSrc} alt={this.props.currentPost.imageAlt} />
+                                    <span className="card-title">{this.props.currentPost.title}</span>
+                                </div>
+                                <div className="content" dangerouslySetInnerHTML={this.createMarkup()}>
+                                </div>
                             </div>
                         </div>
-                </div>
+                    </div>
                 </main>
             </div>
         )
