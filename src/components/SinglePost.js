@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
+import { getCurrentPost } from '../actions/';
 
 class SinglePost extends Component {
 
@@ -8,6 +11,11 @@ class SinglePost extends Component {
         this.state = {
             newNotifications: 4
         }
+    }
+
+    componentDidMount() {
+        console.log(this.props);
+        this.props.getCurrentPost(this.props.match.params.slug);
     }
 
     renderNotifications() {
@@ -52,4 +60,12 @@ class SinglePost extends Component {
     }
 }
 
-export default SinglePost;
+// Dispatch action to fetch posts
+function mapStateToProps(state) {
+    console.log('app state', state);
+    return {
+        currentPost: state.currentPost
+    }
+}
+
+export default connect(mapStateToProps, { getCurrentPost })(SinglePost);
