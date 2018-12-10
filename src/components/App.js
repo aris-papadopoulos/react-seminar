@@ -17,7 +17,7 @@ class App extends Component {
                 <main>
                     <div className="row container">
                         {this.props.posts.map(post => {
-                            return <Post imageSrc={post.featured_media.url} title={post.title} excerpt={post.excerpt} slug={post.slug} />
+                            return <Post key={post.slug} imageSrc={post.featured_media.url} title={post.title} excerpt={post.excerpt} slug={post.slug} />
                         })}
                     </div>
                 </main>
@@ -28,6 +28,7 @@ class App extends Component {
 
 // Dispatch action to fetch posts
 function mapStateToProps(state) {
+    console.log(state);
     return {
         posts: state.posts
     }

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class Header extends Component {
     constructor(props) {
@@ -30,7 +31,7 @@ class Header extends Component {
                 <nav>
                     <div className="nav-wrapper blue lighten-1">
                         <div className="container">
-                            <a href="/" className="brand-logo">Ferries In Greece</a>
+                            <Link to="/" className="brand-logo">Ferries In Greece</Link>
                             <ul id="nav-mobile" className="right">
                                 <li><a href="#sass">sass</a></li>
                                 <li><a href="#less" onClick={this.clearNotifications}>less {this.renderNotifications()}</a></li>
