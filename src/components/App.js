@@ -17,7 +17,7 @@ class App extends Component {
                 <main>
                     <div className="row container">
                         {this.props.posts.map(post => {
-                            return <Post imageSrc={post.featured_media.url} title={post.title} excerpt={post.excerpt} />
+                            return <Post imageSrc={post.featured_media.url} title={post.title} excerpt={post.excerpt} slug={post.slug} />
                         })}
                     </div>
                 </main>

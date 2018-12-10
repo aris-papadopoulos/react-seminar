@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom'
 
 
 class Post extends Component {
@@ -17,7 +18,7 @@ class Post extends Component {
                             {/* {this.props.excerpt} */}
                         </div>
                         <div className="card-action">
-                            <a href="#mpampis" className="blue-text text-darken-2">Read more</a>
+                            <Link to={'/posts/' + this.props.slug} className="blue-text text-darken-2">Read more</Link>
                         </div>
                     </div>
                </div>
