@@ -34,7 +34,7 @@ class SinglePost extends Component {
     }
 
     createMarkup() {
-        return {__html: this.props.excerpt};
+        return {__html: this.props.currentPost.content};
     }
 
     render() {
@@ -44,13 +44,10 @@ class SinglePost extends Component {
                     <div className="col s12 m6">
                         <div className="card z-depth-2">
                             <div className="card-image">
-                                <img src={this.props.imageSrc} alt="mpamphs" />
-                                <span className="card-title">{this.props.title}</span>
+                                <img src={this.props.currentPost.imageSrc} alt={this.props.currentPost.imageAlt} />
+                                <span className="card-title">{this.props.currentPost.title}</span>
                             </div>
                             <div className="card-content" dangerouslySetInnerHTML={this.createMarkup()}>
-                            </div>
-                            <div className="card-action">
-                                <a href="#mpampis" className="blue-text text-darken-2">Read more</a>
                             </div>
                         </div>
                 </div>
