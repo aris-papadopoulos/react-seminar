@@ -3,6 +3,9 @@ import axios from 'axios';
 export const GET_POSTS = 'get_posts';
 export const GET_CURRENT_POST = 'get_current_post';
 
+export const LOADING_POST = 'loading_post';
+
+
 export function getPosts() {
     const request = axios.get('https://blog.ferriesingreece.com/wp-json/wp/v2/posts?_embed');
 
@@ -20,6 +23,11 @@ export function getCurrentPost(slug) {
     const request = axios.get(`https://blog.ferriesingreece.com/wp-json/wp/v2/posts/?slug=${slug}`);
 
     return (dispatch) => {
+
+        dispatch({ 
+            type: LOADING_POST, 
+            payload: slug
+        })
         // Initial Request using slug from url
         request.then(({data}) => {
             // Second Request after getting post ID

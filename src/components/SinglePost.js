@@ -37,21 +37,47 @@ class SinglePost extends Component {
         return {__html: this.props.currentPost.content};
     }
 
+    renderPost() {
+        if (this.props.currentPost.isLoading === true) {
+            return (
+                <div className="preloader-wrapper big active">
+                    <div className="spinner-layer spinner-blue">
+                        <div className="circle-clipper left">
+                            <div className="circle"></div>
+                        </div>
+                        <div className="gap-patch">
+                            <div className="circle"></div>
+                        </div>
+                        <div className="circle-clipper right">
+                            <div className="circle"></div>
+                        </div>
+                    </div>
+                </div>
+            )
+        }
+        else {
+            return (
+                <div className="col s12">
+                    <div className="card">
+                        <div className="card-image">
+                            <img src={this.props.currentPost.imageSrc} alt={this.props.currentPost.imageAlt} />
+                            <span className="card-title">{this.props.currentPost.title}</span>
+                        </div>
+                        <div className="content" dangerouslySetInnerHTML={this.createMarkup()}>
+                        </div>
+                    </div>
+                </div>
+            )
+        }
+
+    }
+
     render() {
         return (
             <div className="App">
                 <main>
                     <div className="row container">
-                        <div className="col s12">
-                            <div className="card">
-                                <div className="card-image">
-                                    <img src={this.props.currentPost.imageSrc} alt={this.props.currentPost.imageAlt} />
-                                    <span className="card-title">{this.props.currentPost.title}</span>
-                                </div>
-                                <div className="content" dangerouslySetInnerHTML={this.createMarkup()}>
-                                </div>
-                            </div>
-                        </div>
+                        {this.renderPost()}
                     </div>
                 </main>
             </div>
