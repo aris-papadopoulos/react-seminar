@@ -7,7 +7,7 @@ export default function (state = {}, action) {
     switch(action.type) {
         case LOADING_POST:
             currentID = action.payload;
-            // Check if post page changed
+            // Check if post page changed and set loading state
             if (currentID !== action.payload.id) {
                 return {
                     isLoading: true
@@ -17,6 +17,7 @@ export default function (state = {}, action) {
                 return state;
             }
         case GET_CURRENT_POST:
+            // Sets the data needed for displaying the single post page
             return {
                 title: action.payload.title.rendered,
                 content: action.payload.content.rendered,
