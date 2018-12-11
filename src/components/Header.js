@@ -15,7 +15,7 @@ class Header extends Component {
             return <span className="new badge red">{this.state.newNotifications}</span>
         }
         else {
-            return
+            return null;
         }
     }
 

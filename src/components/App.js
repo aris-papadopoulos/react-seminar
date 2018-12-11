@@ -8,6 +8,7 @@ import { getPosts } from '../actions/';
 class App extends Component {
 
     componentDidMount() {
+        // Get posts from Wordpress API
         this.props.getPosts();
     }
 
@@ -26,9 +27,8 @@ class App extends Component {
     }
 }
 
-// Dispatch action to fetch posts
+// Get redux state for posts previews
 function mapStateToProps(state) {
-    console.log(state);
     return {
         posts: state.posts
     }

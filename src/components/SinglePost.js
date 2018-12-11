@@ -5,40 +5,19 @@ import { getCurrentPost } from '../actions/';
 
 class SinglePost extends Component {
 
-    constructor(props) {
-        super(props);
-        this.clearNotifications = this.clearNotifications.bind(this);
-        this.state = {
-            newNotifications: 4
-        }
-    }
-
     componentDidMount() {
-        console.log(this.props);
+        // Get selected post data from Wordpress API
         this.props.getCurrentPost(this.props.match.params.slug);
     }
 
-    renderNotifications() {
-        if (this.state.newNotifications > 0) {
-            return <span className="new badge red">{this.state.newNotifications}</span>
-        }
-        else {
-            return
-        }
-    }
-
-    clearNotifications() {
-        this.setState({
-            newNotifications: 0
-        });
-    }
-
+    // Parse HTML
     createMarkup() {
         return {__html: this.props.currentPost.content};
     }
 
     renderPost() {
         if (this.props.currentPost.isLoading === true) {
+            // Render Preloader
             return (
                 <div className="preloader-wrapper big active">
                     <div className="spinner-layer spinner-blue">
@@ -56,6 +35,7 @@ class SinglePost extends Component {
             )
         }
         else {
+            // Render post data 
             return (
                 <div className="col s12">
                     <div className="card">
@@ -87,7 +67,6 @@ class SinglePost extends Component {
 
 // Dispatch action to fetch posts
 function mapStateToProps(state) {
-    console.log('app state', state);
     return {
         currentPost: state.currentPost
     }

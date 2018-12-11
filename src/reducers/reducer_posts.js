@@ -4,6 +4,8 @@ import { GET_POSTS } from '../actions';
 export default function (state = [], action) {
     switch(action.type) {
         case GET_POSTS:
+
+        // Create a new object with the ID as key from iterating the array
         // let newState = action.payload.reduce((acc, cur) => ({...acc, [cur.id]: {
         //     title: cur.title.rendered,
         //     excerpt: cur.excerpt.rendered,
@@ -14,6 +16,8 @@ export default function (state = [], action) {
         //     slug: cur.slug
         // }
         // }), {});
+
+        // Create a new array of objects extracting from the response only the data needed
         let newState = action.payload.map(post => {
             return {
                 id: post.id,
@@ -27,6 +31,7 @@ export default function (state = [], action) {
             }
         });
             return newState;
+            
         default:
             return state;
     }
